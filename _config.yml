@@ -1,9 +1,8 @@
 # Site settings
 title: Les Ateliers de Sandrine
-
 description: "Stages de décoration, restauration et bricolage"
-baseurl: "/les-ateliers-de-sandrine.fr"
-url: "http://sandrine-becker.github.io"
+baseurl: ""
+url: "http://les-ateliers-de-sandrine.fr"
 
 markdown: kramdown
 

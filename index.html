@@ -1,19 +1,83 @@
 ---
 layout: default
-title: Les Ateliers de Sandrine
+title: Accueil
 ---
 
-<div class="container">
+<div class="row">
 
-    <div class="row">
-        <div class="col-sm-6 logo">
-            <img src="{{ site.baseurl }}/assets/images/logo-ateliers-sandrine-optim.svg" alt="Les Ateliers de Sandrine" class="img-responsive clearfix">
+{% assign sorted_pages = site.pages | sort: "nav_order" %}
+{% for p in sorted_pages %}
+
+  {% if p.title %}
+    {% assign urlParts =  p.url | split:'/' %}
+    {% assign level = 0 %}
+    {% assign selected = 0 %}
+
+    {% for part in urlParts %}
+        {% if part != '' %}
+            {% assign level =  level | plus: 1 %}
+        {% endif %}
+    {% endfor %}
+
+    {% if p.url contains '/ateliers' %}
+        {% assign selected = 1 %}
+    {% endif %}
+
+    {% if level == 2 and selected == 1 %}
+
+        {% if p.box_style %}
+            {% assign class=p.box_style %}
+        {% else %}
+            {% assign class='middle' %}
+        {% endif %}
+
+        <div class="col-md-3 col-sm-4 col-xs-10 col-md-push-0 col-sm-push-1">
+            <a href="{{ site.baseurl }}{{ p.url }}">
+                <div class="home-entry">
+                    {% responsive_image_block %}
+                        path: assets/images/{{ p.img }}
+                        alt: {{ p.title }}
+                        baseurl: {{ site.baseurl }}
+                    {% endresponsive_image_block %}
+                    <div class="{{ class }}">
+                        <h4><strong>Atelier : {{ p.title }}</strong></h4>
+                    </div>
+                </div>
+            </a>
         </div>
-        <div class="col-sm-6 text">
-            <p>Les Ateliers de Sandrine vous proposent des ateliers déco à Metz, Verdun et Luxembourg.</p>
-            <p>Ouverture du site le vendredi 6 février 2015.</p>
-        </div>
+
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    <div class="col-md-3 col-sm-4 col-xs-10 col-md-push-0 col-sm-push-1">
+        <a href="{{ site.baseurl }}/calendrier">
+            <div class="home-entry calendrier">
+                {% responsive_image_block %}
+                    path: assets/images/enduit.jpg
+                    alt: Calendrier
+                    baseurl: {{ site.baseurl }}
+                {% endresponsive_image_block %}
+                <div class="{{ class }}">
+                    <h4><strong>Calendrier des Ateliers</strong></h4>
+                </div>
+            </div>
+        </a>
     </div>
+
+    <div class="col-md-3 col-sm-4 col-xs-10 col-md-push-0 col-sm-push-1">
+        <a href="{{ site.baseurl }}/inscription">
+            <div class="home-entry calendrier">
+                {% responsive_image_block %}
+                    path: assets/images/buffet.jpg
+                    alt: Bulletin d'inscription
+                    baseurl: {{ site.baseurl }}
+                {% endresponsive_image_block %}
+                <div class="{{ class }}">
+                    <h4><strong>Bulletin d'inscription</strong></h4>
+                </div>
+            </div>
+        </a>
+    </div>
+
 </div>
-
-

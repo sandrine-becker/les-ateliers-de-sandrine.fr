@@ -1,0 +1,59 @@
+# productNumber
+# Numéro de produit
+# 1 - Je peins et colore ma pièce
+# 2 - Décors sur toile et bois
+# 3 - Je relooke mon intérieur
+# 4 - Je patine mes meubles
+# 5 - Je fabrique ma peinture
+
+# days : durée en jours
+
+# place
+# lieu du stage
+# 1 - Villers
+# 2 - Metz Carrefour
+
+2015:
+    04:
+        02:
+            productNumber: 4
+            days: 2
+            place: 2
+            price: 280
+
+        06:
+            productNumber: 4
+            days: 1
+            place: 2
+            price: 180
+
+        11:
+            productNumber: 4
+            days: 2
+            place: 2
+            price: 280
+
+        13:
+            productNumber: 4
+            days: 1
+            place: 2
+            price: 280
+
+        21:
+            productNumber: 4
+            days: 2
+            place: 1
+            price: 280
+
+        28:
+            productNumber: 4
+            days: 3
+            place: 2
+            price: 380
+
+
+
+
+
+
+

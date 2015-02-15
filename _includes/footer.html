@@ -1,3 +1,25 @@
+<footer class="site-footer">
+    <div class="row">
+        © copyright Sandrine Becker 2010 - {{ site.time | date: '%Y' }}
+
+        {% assign footer_sorted_pages = site.pages | sort: "nav_order" | where: 'group', 'footer_nav' %}
+        {% assign footer_menu = site.emptyArray %}
+
+        {% for p in footer_sorted_pages %}
+            {% capture menu_link %}
+                <a href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
+            {% endcapture %}
+            {% assign footer_menu = footer_menu | unshift: menu_link %}
+        {% endfor %}
+
+        {{ footer_menu | join: " - "}}
+
+
+    </div>
+</footer>
+
 <script src="{{site.baseurl}}/assets/js/jquery-1.11.2.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/jquery.cookie.js"></script>
 <script src="{{site.baseurl}}/assets/js/bootstrap.js"></script>
+<script src="{{site.baseurl}}/assets/js/scripts.js"></script>
 

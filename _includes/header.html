@@ -1,2 +1,25 @@
+<header id="header" class="header row clearfix">
+  <div class="col-xs-12 col-sm-4 ">
+    <a href="{{ site.baseurl }}/" class="logo">
+      <img src="{{ site.baseurl }}/assets/images/logo-ateliers-sandrine-optim.svg" alt="Les Ateliers de Sandrine" width="100%" class="img-responsive  center-block">
+    </a>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-8 clearfix">
+    <div class="navbar navbar-default">
 
+          <div class="navbar-header">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+             menu
+             </button>
+          </div>
+          <div class="navbar-collapse collapse">
+             <ul class="nav navbar-nav navbar-right">
+                {% assign sorted_pages = site.pages | sort: "nav_order" | where: 'group', 'main_nav' %}
+                <li class="{% if page.url == '/' %} - active{% endif %}"><a href="{{ site.baseurl }}/">Accueil</a></li>
+    {% for p in sorted_pages %}{% if p.title %}{% assign urlParts =  p.url | split:'/' %}{% assign level = 0 %}{% for part in urlParts %}{% if part != '' %}{% assign level =  level | plus: 1 %}{% endif %}{% endfor %}{% if level == 1 %}{% include _mainNavLevel2.html parent=p %}{% endif %}{% endif %}{% endfor %}
+             </ul>
+          </div>
 
+    </div>
+  </div>
+</header>

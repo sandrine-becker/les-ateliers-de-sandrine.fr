@@ -1,0 +1,9 @@
+<picture>
+    {% for i in resized %}
+        <source media="(min-width: {{ i.width }}px)" srcset="{{ baseurl }}/{{ i.path }}">
+    {% endfor %}
+
+{% assign defaultImg = resized.first %}
+
+    <img class="img-responsive" srcset="{{ baseurl }}/{{ defaultImg.path }}">
+</picture>

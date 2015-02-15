@@ -1,10 +1,15 @@
 # Site settings
 title: Les Ateliers de Sandrine
-description: "Stages de décoration, restauration et bricolage"
+
+description: "Stages de décoration intérieure, restauration de meubles et bricolage, à Metz, Luxembourg et Verdun"
 baseurl: ""
 url: "http://les-ateliers-de-sandrine.fr"
 
 markdown: kramdown
+
+kramdown:
+  parse_block_html: true
+  parse_span_html: true
 
 excerpt_separator: '<!--excerpt-->'
 
@@ -23,25 +28,27 @@ sass:
 permalink: pretty
 
 emptyArray: []
+exclude:
+  - blog.html
+  - calenedrier.html
 
 responsive_image:
   # [Required]
   # Path to the image template.
-  template: _includes/_responsive-image.html
+  template: _includes/_responsive-image-img.html
 
   # [Optional, Default: 85]
   # Quality to use when resizing images.
-  default_quality: 80
+  default_quality: 60
 
   # [Optional, Default: []]
   # An array of resize configuration objects. Each object must contain at least
   # a `width` value.
   sizes:
     - width: 480  # [Required] How wide the resized image will be.
-      quality: 80 # [Optional] Overrides default_quality for this size.
+      quality: 60 # [Optional] Overrides default_quality for this size.
     - width: 800
     - width: 1000
-      quality: 80
 
   # [Optional, Default: assets/resized/%{filename}-%{width}x%{height}.%{extension}]
   # The template used when generating filenames for resized images.

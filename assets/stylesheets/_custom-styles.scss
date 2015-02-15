@@ -1,9 +1,191 @@
+.main-content a{
+    border-bottom: 1px solid $brand-primary;
 
-.logo{
-  margin-top: 30px;
+    &:hover{
+      background-color: $brand-success;
+    }
 }
 
-.text{
-  margin-top: 60px;
-  color: $brand-primary;
+@mixin bg-rgba($r, $g, $b, $a) {
+  background-color: rgba($r, $g, $b, $a);
+  transition: background-color 0.5s ease 1s;
+}
+
+@mixin brand-primary-bg{
+ @include bg-rgba(159, 156, 93, 0.9);
+}
+
+@mixin brand-success-bg{
+ @include bg-rgba(255, 186, 93, 0.9);
+}
+
+#header{
+    @media (min-width: $screen-md-min) {
+  margin-bottom: 20px;
+  }
+}
+
+.logo {
+    height: 135px;
+    @media (min-width: 330px) {
+      height: 155px;
+    }
+}
+
+.navbar-nav{
+  @media (min-width: $grid-float-breakpoint) {
+
+  }
+}
+
+.navbar-default {
+
+  .navbar-nav {
+    > li > a {
+      color: $navbar-default-link-color;
+
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-hover-color;
+        background-color: $navbar-default-link-hover-bg;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-active-color;
+        border-bottom: 1px dotted $brand-success;
+        background-color: white;
+      }
+    }
+  }
+
+  .navbar-toggle {
+    border-color: $brand-success;
+    color: $brand-success;
+    &:hover,
+    &:focus {
+      background-color: $light-brand-succes;
+    }
+    .icon-bar {
+      background-color: $light-brand-succes;
+    }
+  }
+}
+
+.home-entry{
+  position: relative;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: 1px solid $light-brand-succes;
+}
+
+.home-entry > div{
+  transition-property: width;
+  transition-duration: 3s, 5s;
+
+  width: 100%;
+
+  left: 0;
+
+  padding: 5px;
+  @include brand-success-bg;
+  &:hover{
+    background-color: $brand-success;
+  }
+  color: darken($brand-primary, 20%);
+
+  @media (min-width: $grid-float-breakpoint) {
+    padding: 10px;
+  }
+
+  h3{
+    margin: 5px 0;
+  }
+
+  p{
+    margin: 0;
+  }
+}
+
+.home-entry.calendrier > div{
+  @include brand-primary-bg;
+  color: white;
+}
+
+.atelier{
+
+  h1 {
+    // text-transform: uppercase;
+    // font-size: 1.4em;
+    margin-top: 0;
+  }
+
+  .excerpt{
+    color: darken($brand-primary, 10%);
+    font-size: 1em;
+    ul{
+      padding-left: 1em;
+    }
+    li{
+      //list-style: none;
+      //font-weight: bold;
+      margin-bottom: 8px;
+    }
+  }
+
+  dl {
+      border: 1px solid $light-brand-primary;
+      padding: 0.5em;
+    }
+    dt {
+      float: left;
+      clear: left;
+      width: 8em;
+      text-align: right;
+      font-weight: bold;
+    }
+    dt:after {
+      content: " : ";
+    }
+    dd {
+      margin: 0 0 0 8.4em;
+      padding: 0 0 0.5em 0;
+    }
+
+}
+
+.site-footer{
+  margin-top: 20px;
+  padding: 30px;
+  border-top: 1px solid $brand-primary;
+
+  a{
+    border-bottom: 1px solid $brand-primary;
+
+    &:hover{
+      background-color: $brand-success;
+    }
+
+  }
+
+}
+
+.atelierDate{
+
+  margin-bottom: 10px;
+
+  .inner{
+    padding: 10px;
+    border: 1px solid $brand-primary;
+  }
+
+  h3{
+    margin: 0;
+    color: white;
+    padding: 5px;
+    background: $brand-primary;
+  }
+
 }

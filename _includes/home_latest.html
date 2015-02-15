@@ -1,0 +1,14 @@
+<!-- Latest pages - row {{ row }} -->
+<div class="">
+    {% for p in site.pages offset: offset limit: pagesPerRow %}
+        <article>
+            <figure>
+                <a href="{{ p.url }}"><img src="{{ p.featured_image_path }}" alt=""></a>
+            </figure>
+            <div>
+                <h2><a href="{{ p.url }}">{{ p.title }}</a></h2>
+                <p>{{ p.excerpt | strip_html }}</p>
+            </div>
+        </article>
+    {% endfor %}
+</div>

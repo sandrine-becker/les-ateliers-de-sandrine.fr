@@ -1,0 +1,14 @@
+{% assign subMenuPages = site.emptyArray %}{% assign parent = include.parent %}{% for subNode in sorted_pages %}{% if subNode.title %}{% assign isChild = 0 %}{% assign urlParts =  subNode.url | split:'/' %}{% assign level = 0 %}{% for subNodePart in urlParts %}{% if subNodePart != '' %}{% assign level = level | plus: 1 %}{% endif %}{% endfor %}{% if subNode.url contains parent.url %}{% assign isChild = 1 %}{% endif %}{% if level == 2 and isChild == 1 %}{% assign subMenuPages = subMenuPages | push: subNode %}{% endif %}{% endif %}{% endfor %}
+{% assign subMenuPagesSize = subMenuPages | size %}{% if subMenuPagesSize != 0 %}
+    <li class="dropdown {% if page.url == p.url %} - active{% endif %}">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ parent.title }} <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+        {% for child in subMenuPages %}<li><a href="{{ site.baseurl }}{{ child.url }}">{{ child.title }}</a></li>
+        {% endfor %}
+        </ul>
+    </li>
+{% else %}
+    <li class="{% if page.url == p.url %} - active{% endif %}">
+        <a href="{{ parent.url | prepend: site.baseurl }}">{{ parent.title }}</a>
+    </li>
+{% endif %}

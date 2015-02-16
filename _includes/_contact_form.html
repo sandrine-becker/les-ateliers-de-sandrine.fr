@@ -1,0 +1,19 @@
+    <div class="col-md-6">
+        <h2>Envoyez nous un message</h2>
+        <!-- see http://formspree.io/ -->
+        <form action="//formspree.io/becker.sandrine@gmail.com" method="POST">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Votre nom">
+            </div>
+            <div class="form-group">
+                <input type="email" name="_replyto" placeholder="Votre email">
+            </div>
+            <div class="form-group">
+                <textarea name="message" rows="5" placeholder="Votre message"></textarea>
+            </div>
+            <input type="text" name="_gotcha" style="display:none" />
+            <input type="hidden" name="_cc" value="david.jacquel@gmail.com" />
+            <input type="hidden" name="_next" value="{{ site.url }}/contact-merci-de-votre-message/"
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>

@@ -1,0 +1,14 @@
+    <div class="col-md-6">
+        <h2>Nos ateliers</h2>
+        {% for place in site.data.places %}
+            <div class="col-md-12">
+                <h3>{{ place[1].city }}</h3>
+                <address>
+                    <strong>{{ place[1].name }}</strong><br>
+                    {{ place[1].address }}<br>
+                    {{ place[1].postcode }} {{ place[1].city }}<br>
+                    Tél : {{ place[1].tel }}
+                </address>
+            </div>
+        {% endfor %}
+    </div>

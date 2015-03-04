@@ -24,15 +24,9 @@
 
         06:
           -
-            productNumber: 4
-            days: 1
-            place: 2
-            price: 180
-
-          -
             productNumber: 2
             days: 1
-            place: 1
+            place: 2
             price: 80
             time: "14h-18h"
 

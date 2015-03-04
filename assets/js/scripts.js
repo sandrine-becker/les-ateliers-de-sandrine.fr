@@ -24,3 +24,8 @@ $(function() {
         }
     );
 });
+
+// match height on calendar elements
+(function() {
+  $('.atelierDate .inner').matchHeight();
+})();

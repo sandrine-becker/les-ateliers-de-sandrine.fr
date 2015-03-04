@@ -42,7 +42,7 @@
             productNumber: 4
             days: 1
             place: 2
-            price: 280
+            price: 180
 
         21:
           -
@@ -53,10 +53,10 @@
 
         28:
           -
-            productNumber: 4
+            productNumber: 3
             days: 3
             place: 2
-            price: 380
+            price: 500
 
 
 

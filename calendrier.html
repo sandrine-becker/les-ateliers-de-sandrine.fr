@@ -8,44 +8,32 @@ nav_order: 50
 {% for year in site.data.calendrier %}
     {% for month in year[1] %}
         {% for day in month[1] %}
-
             {% capture dateStr %}{{ year[0] }}-{{ month[0] }}-{{ day[0] }}{% endcapture %}
             {% assign startDate = dateStr | date: '%s' %}
             {% assign today = site.time | date: '%s' %}
-
             {% if startDate > today %}
-
-                {% assign atelier = site.pages | where: 'productNumber', day[1].productNumber %}
-
-                <div class="col-md-4 col-sm-6 atelierDate">
-                    {% assign place = day[1].place %}
-                    {% assign lieu = site.data.places[place] %}
-
-                    {% capture debut %}{% include custom_date_full_fr.html date=dateStr %}{% endcapture %}
-                    {% assign duree = day[1].days %}
-                    {% capture fin %}{% include custom_date_end_date.html date=dateStr duration=duree %}{% endcapture %}
-
-                    <div class="inner">
-                        <h3>{{ atelier[0].title }}</h3>
-                        <p>
-                        {% if debut == fin %}
-                            le {{ debut }}
-                        {% else %}
-                            du {{ debut }} <br>au {{ fin }}
-                        {% endif %}
-                        </p>
-
-                        <p>à {{ lieu.city }} (<a href="/contact">voir l'adresse</a>)</p>
-                        <p>Prix : {{ day[1].price }}€</p>
-                        <p><a href="{{ site.baseurl }}{{ atelier[0].url }}">Plus d'information sur le contenu du stage</a></p>
+                {% for atelier in day[1] %}
+                    {% assign atelierPage = site.pages | where: 'productNumber', atelier.productNumber %}
+                    <div class="col-md-4 col-sm-6 atelierDate">
+                        {% assign place = atelier.place %}
+                        {% assign lieu = site.data.places[place] %}
+                        {% capture debut %}{% include custom_date_full_fr.html date=dateStr %}{% endcapture %}
+                        {% assign duree = atelier.days %}
+                        {% capture fin %}{% include custom_date_end_date.html date=dateStr duration=duree %}{% endcapture %}
+                        <div class="inner">
+                            <h3>{{ atelierPage[0].title }}</h3>
+                            <p>{% if fin contains debut %}le {{ debut }}{% else %}du {{ debut }}
+                            <br>au {{ fin }}{% endif %}{% if atelier.time %}
+                            <br>{{ atelier.time }}{% endif %}</p>
+                            <p>à {{ lieu.city }} (<a href="/contact">voir l'adresse</a>)</p>
+                            <p>Prix : {{ atelier.price }}€</p>
+                            <p><a href="{{ site.baseurl }}{{ atelierPage[0].url }}">Plus d'information sur le contenu du stage</a></p>
+                        </div>
                     </div>
-                </div>
-
+                {% endfor %}
             {% endif %}
         {% endfor %}
     {% endfor %}
 {% endfor %}
-
 </div>
-
 <p><strong>Note</strong> : Vous ne trouvez pas l'Atelier qui vous convient. N'hésitez pas à nous contacter grâce à notre <a href="{{ site.baseurl }}/contact">formulaire de contact</a>.</p>

@@ -1,4 +1,1 @@
-{% assign timeStamp = include.date | date: '%s' %}
-{% assign durationToEpoc = include.duration | minus: 1 | times: 3600 | times: 24 %}
-{% assign endEpoc = timeStamp | plus: durationToEpoc %}
-{% include custom_date_full_fr.html date=endEpoc %}</p>
+{% assign timeStamp = include.date | date: '%s' %}{% assign durationToEpoc = include.duration | minus: 1 | times: 3600 | times: 24 %}{% assign endEpoc = timeStamp | plus: durationToEpoc %}{% include custom_date_full_fr.html date=endEpoc %}

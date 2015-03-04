@@ -16,36 +16,49 @@
 2015:
     04:
         02:
+          -
             productNumber: 4
             days: 2
             place: 2
             price: 280
 
         06:
+          -
             productNumber: 4
             days: 1
             place: 2
             price: 180
 
+          -
+            productNumber: 2
+            days: 1
+            place: 1
+            price: 80
+            time: "14h-18h"
+
         11:
+          -
             productNumber: 4
             days: 2
             place: 2
             price: 280
 
         13:
+          -
             productNumber: 4
             days: 1
             place: 2
             price: 280
 
         21:
+          -
             productNumber: 4
             days: 2
             place: 1
             price: 280
 
         28:
+          -
             productNumber: 4
             days: 3
             place: 2
